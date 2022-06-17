@@ -11,6 +11,13 @@ class Users {
   getAllUsers(): IUser[] {
     return this.all;
   }
+
+  add(user: IUser): IUser {
+    const newUser: IUser = user;
+    newUser.id = uuidv4();
+    this.all.push(newUser);
+    return newUser;
+  }
 }
 const users = new Users();
 
