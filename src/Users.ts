@@ -7,6 +7,10 @@ class Users {
   constructor() {
     this.all = [];
   }
+
+  getAllUsers(): IUser[] {
+    return this.all;
+  }
 }
 const users = new Users();
 
