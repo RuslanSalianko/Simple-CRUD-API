@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import * as http from 'http';
 import { validate as uuidValidate } from 'uuid';
 import { IUser, IClassUsers } from './interface';

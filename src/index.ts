@@ -7,7 +7,7 @@ import users from './Users.js';
 const numCPUs = cpus().length;
 
 if (cluster.isPrimary) {
-  process.stdout.write(`Primary ${process.pid} is running`);
+  process.stdout.write(`Primary ${process.pid} is running\n`);
 
   // Fork workers.
   for (let i: number = 0; i < numCPUs; i += 1) {
@@ -15,12 +15,12 @@ if (cluster.isPrimary) {
   }
 
   cluster.on('exit', (worker) => {
-    process.stdout.write(`worker ${worker.process.pid} died`);
+    process.stdout.write(`worker ${worker.process.pid} died\n`);
   });
 } else {
   // Workers can share any TCP connection
   // In this case it is an HTTP server
   server(users);
 
-  process.stdout.write(`Worker ${process.pid} started`);
+  process.stdout.write(`Worker ${process.pid} started\n`);
 }
