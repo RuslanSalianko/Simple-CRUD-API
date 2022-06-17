@@ -21,6 +21,12 @@
             {
                 "ignorePackages": true
             }
+        ],
+        "import/no-unresolved": [
+            0,
+            {
+                "caseSensitiveStrict": true
+            }
         ]
     }
 }
