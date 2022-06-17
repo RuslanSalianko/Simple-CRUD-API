@@ -1,9 +1,10 @@
 /* eslint-disable import/extensions */
 import * as http from 'http';
 import { validate as uuidValidate } from 'uuid';
+import 'dotenv/config';
 import { IUser, IClassUsers } from './interface';
 
-const port: number = 3000;
+const port: number = Number(process.env.PORT) || 3000;
 
 function bodyParser(req: any) {
   return new Promise<string>((resolve, rejects) => {
