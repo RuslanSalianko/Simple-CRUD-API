@@ -8,8 +8,8 @@
   "type": "module",
   "scripts": {
     "watch": "tsc -w",
-    "start:dev": "tsc -w | nodemon ./dist/server.js",
-    "start:prod": "tsc && node ./dist/server.js",
+    "start:dev": "tsc -w | nodemon ./dist/main.js",
+    "start:prod": "tsc && node ./dist/main.js",
     "start:multi": "tsc && node ./dist/index.js"
   },
   "devDependencies": {
