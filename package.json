@@ -12,6 +12,8 @@
     "start": "node ./dist/index.js"
   },
   "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
     "eslint": "^7.32.0 || ^8.2.0",
