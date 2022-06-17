@@ -54,7 +54,7 @@ const server = http.createServer(async (req, res) => {
             const isUser: boolean = validateAddUser(user);
             if (isUser) {
               users.add(user);
-              res.statusCode = 200;
+              res.statusCode = 201;
               return res.end(JSON.stringify(user));
             }
             res.statusCode = 400;
@@ -82,6 +82,34 @@ const server = http.createServer(async (req, res) => {
           if (user) {
             res.statusCode = 200;
             return res.end(JSON.stringify(user));
+          }
+          res.statusCode = 404;
+          return res.end('Not Found user');
+        }
+
+        case 'PUT': {
+          const user: IUser | undefined = users.getUser(id);
+          const newUser: IUser = JSON.parse(await bodyParser(req));
+          const isUser = validateAddUser(newUser);
+          if (user) {
+            if (isUser) {
+              users.update(id, newUser);
+              res.statusCode = 200;
+              return res.end(JSON.stringify(newUser));
+            }
+            res.statusCode = 400;
+            return res.end('body reqest fail');
+          }
+          res.statusCode = 404;
+          return res.end('Not Found user');
+        }
+
+        case 'DELETE': {
+          const user: IUser | undefined = users.getUser(id);
+          if (user) {
+            users.delete(id);
+            res.statusCode = 204;
+            return res.end();
           }
           res.statusCode = 404;
           return res.end('Not Found user');
