@@ -1,4 +1,5 @@
 import * as http from 'http';
+import { validate as uuidValidate } from 'uuid';
 import users from './Users.js';
 import { IUser } from './interface';
 
@@ -66,8 +67,31 @@ const server = http.createServer(async (req, res) => {
           break;
       }
     }
-  }
 
+    if (lengthPathUrl === 4) {
+      const id: string = pathUrl[3];
+
+      if (!uuidValidate(id)) {
+        res.statusCode = 400;
+        return res.end('userId is invalid');
+      }
+
+      switch (req.method) {
+        case 'GET': {
+          const user: IUser | undefined = users.getUser(id);
+          if (user) {
+            res.statusCode = 200;
+            return res.end(JSON.stringify(user));
+          }
+          res.statusCode = 404;
+          return res.end('Not Found user');
+        }
+
+        default:
+          break;
+      }
+    }
+  }
   res.statusCode = 404;
   return res.end('Not Found');
 }).listen(port);

@@ -18,6 +18,17 @@ class Users {
     this.all.push(newUser);
     return newUser;
   }
+
+  getUser(id: string): IUser | undefined {
+    const index = this.all.findIndex((user: IUser) => {
+      if (user.id === id) {
+        return true;
+      }
+      return false;
+    });
+
+    return this.all[index];
+  }
 }
 const users = new Users();
 
