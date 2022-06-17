@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
-import { IUser } from './interface';
+import { IUser, IClassUsers } from './interface';
 
-class Users {
+class Users implements IClassUsers {
   private all: IUser[];
 
   constructor() {
@@ -34,11 +34,12 @@ class Users {
     return this.all[index];
   }
 
-  update(id: string, user: IUser) {
+  update(id: string, user: IUser): void {
     const index: number = this.findIndex(id);
     this.all[index] = user;
   }
-  delete(id: string) {
+
+  delete(id: string): void {
     const index: number = this.findIndex(id);
     this.all.splice(index, index);
   }
