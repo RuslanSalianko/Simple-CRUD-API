@@ -19,7 +19,7 @@ $ npm run start:dev
 ```
 
 ```console
-$ yarn start start:dev
+$ yarn run start:dev
 ```
 * prod
 ```console
@@ -27,7 +27,7 @@ $ npm run start:prod
 ```
 
 ```console
-$ yarn start start:prod
+$ yarn run start:prod
 ```
 * multi (cluster)
 ```console
@@ -35,5 +35,5 @@ $ npm run start:multi
 ```
 
 ```console
-$ yarn start start:multi
+$ yarn run start:multi
 ```
