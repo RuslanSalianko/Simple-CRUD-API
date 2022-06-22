@@ -1,0 +1,31 @@
+{
+  "name": "Simple-CRUD-API",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github-me.com:RuslanSalianko/Simple-CRUD-API.git",
+  "author": "Ruslan Salianko",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "watch": "tsc -w",
+    "start:dev": "tsc -w | nodemon ./dist/main.js",
+    "start:prod": "tsc && node ./dist/main.js",
+    "start:multi": "tsc && node ./dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "nodemon": "^2.0.16",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "uuid": "^8.3.2"
+  }
+}
